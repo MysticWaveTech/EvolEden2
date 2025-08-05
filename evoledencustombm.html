@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvolEden2 wish machine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-image: url('https://raw.githubusercontent.com/MysticWaveTech/EvolEden2/refs/heads/main/2024-10-18_11-17-50-831.jpg');
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+            background-position: top center;
+        }
+        
+        h1 {
+            margin-top: 450px;
+            width: 150px;
+            background-color: #fff;
+            text-align: center;
+            font-size: 17px;
+            
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover; /* Crop and maintain proportions */
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+            border: 5px solid black;
+            background-color: red;
+        }
+        .image-container img.selected {
+            border-color: #007BFF;
+        }
+        .input-section {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .input-section input{
+            
+           background: #fff;
+        }
+        
+        
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0); }
+            10%, 30%, 50%, 70%, 90% { transform: translate(-10px, 0); }
+            20%, 40%, 60%, 80% { transform: translate(10px, 0); }
+        }
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+         .knobs-container{
+        touch-action: none; /* Prevent default touch actions like scrolling */
+    text-align: center;
+        border: 1px solid red;
+    }
+        
+          .knobs-container {
+    display: flex;
+    gap: 10px; /* Adjust spacing between knobs if needed */
+    background-color: white;
+    padding: 20px;
+}
+
+.knob {
+    width: 40px;
+    height: 40px;
+    background-image: url('https://raw.githubusercontent.com/MysticWaveTech/SubliminalAffirmatiinsRadionics/main/audio-35447_1280%20(1).png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer; /* Indicate that it's draggable */
+    transform-origin: center center; /* Ensure rotation happens around the center */
+  
+    transition: transform 0.1s; /* Smooth transformation */
+}
+            
+            .intent-input{float: left;}
+        
+        
+        
+        @keyframes pulse {
+    0% {
+        transform: scale(1) rotate(0deg);
+        filter: hue-rotate(0deg) brightness(1);
+    }
+    100% {
+        transform: scale(1.1) rotate(20deg);
+        filter: hue-rotate(90deg) brightness(1.3);
+    }
+}
+        
+    </style>
+</head>
+<body>
+
+    <h1>Select a quantometric</h1>
+    <div class="image-container">
+        <img src="https://raw.githubusercontent.com/MysticWaveTech/EvolEden2/refs/heads/main/devil-6923894_1280.png" alt="Image 1" onclick="selectImage(this)">
+        <img src="https://raw.githubusercontent.com/MysticWaveTech/EvolEden2/refs/heads/main/unnamed%20(10).png" alt="Image 2" onclick="selectImage(this)">
+        <img src="https://raw.githubusercontent.com/MysticWaveTech/EvolEden2/refs/heads/main/pope-4352840_1280.jpg" alt="Image 3" onclick="selectImage(this)">
+        <img src="https://raw.githubusercontent.com/MysticWaveTech/EvolEden2/refs/heads/main/unnamed%20(11).png" alt="Image 4" onclick="selectImage(this)">
+        <img src="https://raw.githubusercontent.com/MysticWaveTech/EvolEden2/refs/heads/main/unnamed%20(3).png" alt="Image 5" onclick="selectImage(this)">
+    </div>
+
+    <div class="input-section" id="inputSection">
+        
+        
+        <style>
+     style>
+        /* Hide the default file input */
+        #imageInput {
+            display: none;
+        }
+        /* Style the custom label */
+        .custom-file-input {
+            padding: 5px 10px; /* Reduced padding */
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 3px; /* Reduced border radius */
+            cursor: pointer;
+            font-size: 14px; /* Slightly smaller font size */
+            margin: 0; /* Remove any default margin */
+        }
+       .custom-file-input h1{
+           width: 500px;
+           
+       }
+       
+           mix-blend-mode: screen;
+    backdrop-filter: blur(2px);
+}
+
+
+       
+       
+    </style>
+        
+    </style>
+        
+       
+    <label class="custom-file-input">
+        Well:
+        Subject Sample
+        <input type="file" id="imageInput" accept="image/*" onchange="previewImage()">
+        
+        
+        
+    </label>
+    
+    <img id="imagePreview" alt="Image Preview" style="margin-top: 20px; max-width: 20%; height: auto; display: none;">
+    
+    <script>
+        function previewImage() {
+            const fileInput = document.getElementById('imageInput');
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const img = document.getElementById('imagePreview');
+                img.src = e.target.result;
+                img.style.display = 'block'; // Show the image
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+                // Hide the input value by resetting it
+                fileInput.value = ""; // Clear the input after the image is loaded
+            }
+        }
+    </script>
+        
+        
+        
+        
+        <div class="knobs-container">
+            <p>Tuner</p>
+        <div class="knob" id="knob1"></div>
+        <div class="knob" id="knob2"></div>
+        <div class="knob" id="knob3"></div>
+        
+        <input type="text" id="broadcastInput" placeholder="Intent goes here">
+        <button onclick="broadcast()">Broadcast wish</button>
+        <img src="https://raw.githubusercontent.com/MysticWaveTech/EvolEden2/refs/heads/main/astronaut-7059915_1280.webp" style="width: 60px; height: 60px;">
+        
+        
+         
+
+
+</div>
+        
+        
+        <div style="margin-top: 30px;">
+    <h3>Appearance Frequency</h3>
+    <div id="frequencyDisplay" style="font-weight: bold; font-size: 18px;">0 Hz</div>
+
+    <div id="clippedShape" style="
+        width: 150px;
+        height: 150px;
+        margin: 20px auto;
+        background: radial-gradient(circle, red, orange);
+        clip-path: circle(10% at center);
+        transition: clip-path 0.3s ease;
+    
+    width: 180px;
+    height: 180px;
+    margin: 20px auto;
+    background: conic-gradient(from 0deg, red, yellow, lime, cyan, blue, magenta, red);
+    clip-path: polygon(
+        50% 0%,
+        60% 30%,
+        100% 30%,
+        65% 50%,
+        100% 70%,
+        60% 70%,
+        50% 100%,
+        40% 70%,
+        0% 70%,
+        35% 50%,
+        0% 30%,
+        40% 30%
+    );
+    box-shadow: 0 0 30px rgba(255,255,255,0.5), 0 0 50px red inset;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite alternate;
+    border-radius: 50%;
+"></div>
+
+
+
+
+    <div style="width: 300px; height: 20px; background: #ddd; margin: auto;">
+        <div id="frequencyBar" style="
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(to right, blue, cyan);
+            transition: width 0.3s ease;
+        "></div>
+    </div>
+</div>
+
+        
+        
+        
+    </div>
+
+    <script>
+        function selectImage(img) {
+            // Remove 'selected' class from all images
+            const images = document.querySelectorAll('.image-container img');
+            images.forEach(image => image.classList.remove('selected'));
+
+            // Add 'selected' class to the clicked image
+            img.classList.add('selected');
+
+            // Show the input section
+            document.getElementById('inputSection').style.display = 'block';
+
+            // Shake the background
+            document.body.classList.add('shake');
+            setTimeout(() => {
+                document.body.classList.remove('shake');
+            }, 500); // Remove the shake effect after 0.5s
+        }
+
+        function broadcast() {
+    const message = document.getElementById('broadcastInput').value.trim();
+    if (!message) return alert('Please enter a wish first.');
+
+    const timestamp = new Date().toLocaleString();
+    const wish = { message, timestamp };
+
+    // Get existing wishes
+    let wishes = JSON.parse(localStorage.getItem('wishes')) || [];
+
+    // Add new wish
+    wishes.unshift(wish); // newest first
+    localStorage.setItem('wishes', JSON.stringify(wishes));
+
+    // Update UI
+    renderWishHistory();
+    alert('Manifesting wish: ' + message);
+
+    // Clear input
+    document.getElementById('broadcastInput').value = '';
+}
+
+        
+        // Array to store affirmations
+        let affirmations = [];
+
+        // Function to add an affirmation
+        function addAffirmation() {
+            const affirmationInput = document.getElementById('affirmationInput').value;
+            if (affirmationInput.trim() !== '') {
+                affirmations.push(affirmationInput);
+                document.getElementById('affirmationInput').value = '';
+                displayAffirmation();
+            }
+        }
+
+        // Function to display the affirmation subliminally
+        function displayAffirmation() {
+            const affirmationDisplay = document.getElementById('affirmationDisplay');
+            affirmationDisplay.innerText = affirmations.join(' • ');
+        }
+
+     document.querySelectorAll('.knob').forEach(knob => {
+    let isDragging = false;
+    let initialAngle = 0;
+    let currentRotation = 0;
+let frequency = 0;
+    function startDrag(e) {
+        isDragging = true;
+        e.preventDefault(); // Prevent default touch actions
+        const touch = e.touches ? e.touches[0] : e; // Handle touch or mouse event
+        const rect = knob.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        initialAngle = Math.atan2(touch.clientY - centerY, touch.clientX - centerX);
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+        const touch = e.touches ? e.touches[0] : e; // Handle touch or mouse event
+        const rect = knob.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const currentAngle = Math.atan2(touch.clientY - centerY, touch.clientX - centerX);
+        const deltaAngle = currentAngle - initialAngle;
+        
+        
+        currentRotation += deltaAngle * (180 / Math.PI);
+        knob.style.transform = `rotate(${currentRotation}deg)`;
+
+        // Convert to a pseudo-frequency (example: 0 - 2000 Hz)
+        const frequency = Math.abs(Math.round(currentRotation * 5)) % 2000;
+
+        // Update frequency text
+        document.getElementById('frequencyDisplay').textContent = `${frequency} Hz`;
+
+        // Update CSS clip-path based on frequency (e.g., larger frequency = larger circle)
+        const circleSize = Math.min(90, Math.max(5, frequency / 20)); // keep it between 5% and 90%
+        document.getElementById('clippedShape').style.clipPath = `circle(${circleSize}% at center)`;
+
+        // Update bar graph
+        const percent = Math.min(100, frequency / 20); // convert to 0–100%
+        document.getElementById('frequencyBar').style.width = `${percent}%`;
+
+        
+        
+        
+        
+        initialAngle = currentAngle; // Update initialAngle for continuous rotation
+    }
+
+    function endDrag() {
+        isDragging = false;
+    }
+
+    // Add event listeners for mouse
+    knob.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', endDrag);
+
+    // Add event listeners for touch
+    knob.addEventListener('touchstart', startDrag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('touchend', endDrag);
+});
+    
+        
+        function renderWishHistory() {
+    const wishList = document.getElementById('wishList');
+    wishList.innerHTML = '';
+
+    const wishes = JSON.parse(localStorage.getItem('wishes')) || [];
+    wishes.forEach(w => {
+        const li = document.createElement('li');
+        li.textContent = `${w.timestamp}: ${w.message}`;
+        wishList.appendChild(li);
+    });
+}
+
+// Render previous wishes when page loads
+document.addEventListener('DOMContentLoaded', renderWishHistory);
+
+        
+        // Change spikiness by adjusting clip-path dynamically
+const spikes = Math.max(3, Math.floor(frequency / 150)); // 3 to ~13 spikes
+const radius = 90;
+const inner = 40;
+let points = [];
+
+for (let i = 0; i < spikes * 2; i++) {
+    const angle = (i * Math.PI) / spikes;
+    const r = i % 2 === 0 ? radius : inner;
+    const x = 50 + r * Math.cos(angle) / 2;
+    const y = 50 + r * Math.sin(angle) / 2;
+    points.push(`${x}% ${y}%`);
+}
+
+document.getElementById('clippedShape').style.clipPath = `polygon(${points.join(', ')})`;
+
+        
+        
+        
+    </script>
+<div id="wishHistory" style="background: rgba(255,255,255,0.8); padding: 10px; margin: 20px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
+    <h3>Previous Wishes</h3>
+    <ul id="wishList"></ul>
+</div>
+
+
+
+</body>
+</html>
